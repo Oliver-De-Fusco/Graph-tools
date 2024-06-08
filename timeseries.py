@@ -48,7 +48,6 @@ def drawdown_graph(series, ax=None):
     ax.set_ylim(ylim_decision,0)
 
     # X axis
-
     ax.xaxis.set_major_formatter(mdates.ConciseDateFormatter(ax.xaxis.get_major_locator()))
 
     if len(log_returns) >= 252*4:
@@ -63,11 +62,8 @@ def drawdown_graph(series, ax=None):
         # Short time period
         ax.xaxis.set_major_locator(mdates.MonthLocator())
 
-    # ax.autofmt_xdate()
-
     # Info
 
     drawdown_info = {"max drawdown %":f"{deepest.min():.2f}%", "max drawdown date": deepest_date, "duration start": start, "duration end": end,"days drawdown": f"{max_dur}"}
-    # max_dur/len(data)*100:.2f
     
     return ax, drawdown_info
